@@ -25,11 +25,11 @@ ViewPump.init(ViewPump.builder()
 ## Update some views
 For example update all views in the current activity:
 ```java
-Restring.setLocale(Locales.FRENCH);
+Reword.setLocale(Locales.FRENCH);
 
 // The layout containing the views you want to localize
 final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-Restring.reword(rootView);
+Reword.reword(rootView);
 ```
 
 ## License
