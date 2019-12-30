@@ -3,10 +3,10 @@
 set -ex
 
 # Lib constants
-REPO="git@github.com:b3nedikt/restring.git"
-GROUP_ID="com.b3nedikt.restring"
-ARTIFACT_ID="restring"
-VERSION="3.0.0"
+REPO="git@github.com:b3nedikt/reword.git"
+GROUP_ID="com.b3nedikt.reword"
+ARTIFACT_ID="reword"
+VERSION="1.0.0"
 
 # Javadoc constants
 FILE_PATH="${GROUP_ID//./%2F}%2F${ARTIFACT_ID}%2F${VERSION}%2F${ARTIFACT_ID}-${VERSION}-javadoc.jar"
