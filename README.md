@@ -22,7 +22,7 @@ ViewPump.init(ViewPump.builder()
         );
 ```
 
-### Update some views
+### 3. Update some views
 For example update all views in the current activity:
 ```java
 Reword.setLocale(Locales.FRENCH);
