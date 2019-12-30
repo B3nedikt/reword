@@ -1,0 +1,26 @@
+ext {
+    bintrayRepo = 'reword'
+    bintrayName = 'reword'
+
+    publishedGroupId = 'dev.b3nedikt.reword'
+    artifact = 'reword'
+    libraryVersion = '1.0.0'
+
+    libraryName = 'Reword'
+    libraryDescription = 'Reword is a library to update the texts of views when the apps texts' +
+            ' have changed due to a language change or an update of the apps string resources with' +
+            ' a lib like restring.'
+    siteUrl = 'https://github.com/B3nedikt/reword'
+    gitUrl = 'https://github.com/B3nedikt/reword.git'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+    developerId = 'b3nedikt'
+    developerName = 'Benedikt Löbbecke'
+    developerEmail = 'mail@b3nedikt.dev'
+    organization = 'b3nedikt.dev'
+}
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
