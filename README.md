@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/b3nedikt/reword/restring/images/download.svg?version=1.0.0) ](https://bintray.com/b3nedikt/reword/reword/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=1.0.0) ](https://bintray.com/b3nedikt/reword/reword/1.0.0/link)
 [![Build Status](https://travis-ci.org/B3nedikt/reword.svg?branch=master)](https://travis-ci.org/B3nedikt/reword)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
 
