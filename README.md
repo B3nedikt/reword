@@ -33,10 +33,10 @@ Reword.reword(rootView);
 ```
 
 ## License
-This is a fork of a library originally developed by Hamid Gharehdaghi.
-Also takes some inspiration from Philology by JcMinarro.
+This library takes some inspiration from the library "restring" originally developed by Hamid Gharehdaghi,
+as well as the library "Philology" by JcMinarro.
 <pre>
-Copyright 2018-present Restring Contributors.
+Copyright 2019-present Reword Contributors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
