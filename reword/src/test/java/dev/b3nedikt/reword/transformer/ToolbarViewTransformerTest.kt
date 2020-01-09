@@ -6,6 +6,7 @@ import android.os.Build
 import android.util.AttributeSet
 import android.widget.Toolbar
 import androidx.test.core.app.ApplicationProvider
+import com.nhaarman.mockitokotlin2.whenever
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,8 +27,8 @@ class ToolbarViewTransformerTest {
             val context = spy<Context>(ApplicationProvider.getApplicationContext() as Context)
             val resources = spy<Resources>(context.resources)
 
-            doReturn(resources).`when`<Context>(context).resources
-            doReturn(TITLE_ATTR_VALUE).`when`(resources).getString(TITLE_RES_ID)
+            doReturn(resources).whenever(context).resources
+            doReturn(TITLE_ATTR_VALUE).whenever(resources).getString(TITLE_RES_ID)
 
             return context
         }

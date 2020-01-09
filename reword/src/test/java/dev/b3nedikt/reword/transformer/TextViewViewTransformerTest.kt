@@ -10,7 +10,6 @@ import androidx.test.core.app.ApplicationProvider
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.anyInt
@@ -24,7 +23,7 @@ import org.robolectric.annotation.Config
 @Config(sdk = [Build.VERSION_CODES.P])
 class TextViewViewTransformerTest {
 
-    private lateinit var transformer: dev.b3nedikt.reword.transformer.TextViewViewTransformer
+    private var transformer = TextViewViewTransformer
 
     private val context: Context
         get() {
@@ -37,11 +36,6 @@ class TextViewViewTransformerTest {
 
             return context
         }
-
-    @Before
-    fun setUp() {
-        transformer = dev.b3nedikt.reword.transformer.TextViewViewTransformer
-    }
 
     @Test
     fun shouldTransformTextView() {

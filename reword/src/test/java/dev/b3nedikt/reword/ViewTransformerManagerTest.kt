@@ -3,10 +3,10 @@ package dev.b3nedikt.reword
 import android.os.Build
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
 import dev.b3nedikt.reword.transformer.ViewTransformer
-import org.junit.Assert.assertSame
+import org.amshove.kluent.shouldBe
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,14 +28,14 @@ class ViewTransformerManagerTest {
     fun shouldTransformView() {
         val textView = TextView(ApplicationProvider.getApplicationContext())
 
-        val transformer = mock<ViewTransformer<TextView>>()
-
-        whenever(transformer.viewType).thenReturn(TextView::class.java)
+        val transformer = mock<ViewTransformer<TextView>> {
+            on { viewType } doReturn TextView::class.java
+        }
 
         transformerManager.registerTransformer(transformer)
 
         val transformedView = transformerManager.transform(textView, mock())
 
-        assertSame(textView, transformedView)
+        textView shouldBe  transformedView
     }
 }
