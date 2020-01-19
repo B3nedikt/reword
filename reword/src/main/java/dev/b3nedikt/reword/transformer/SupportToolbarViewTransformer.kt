@@ -3,7 +3,7 @@ package dev.b3nedikt.reword.transformer
 import androidx.appcompat.widget.Toolbar
 
 /**
- * A transformer which transforms Toolbar(from support library): it transforms the text set as title.
+ * A [ViewTransformer] which transforms the androidX Toolbar
  */
 internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
 
@@ -18,10 +18,12 @@ internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>
             ATTRIBUTE_APP_TITLE, ATTRIBUTE_APP_SUBTITLE)
 
     override fun Toolbar.transform(attrs: Map<String, Int>) {
-        attrs.forEach { entry ->
-            when (entry.key) {
-                ATTRIBUTE_TITLE, ATTRIBUTE_APP_TITLE -> updateTexts(entry.value, this::setTitle)
-                ATTRIBUTE_SUBTITLE, ATTRIBUTE_APP_SUBTITLE -> updateTexts(entry.value, this::setSubtitle)
+        attrs.forEach { attribute ->
+            when (attribute.key) {
+                ATTRIBUTE_TITLE, ATTRIBUTE_APP_TITLE ->
+                    updateTexts(attribute.value, this::setTitle)
+                ATTRIBUTE_SUBTITLE, ATTRIBUTE_APP_SUBTITLE ->
+                    updateTexts(attribute.value, this::setSubtitle)
             }
         }
     }

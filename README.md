@@ -9,7 +9,7 @@ restring.
 
 ### 1. Add dependency
 ```groovy
-implementation 'com.b3nedikt.reword:reword:1.0.0'
+implementation 'dev.b3nedikt.reword:reword:1.0.0'
 implementation 'io.github.inflationx:viewpump:2.0.3'
 ```
 

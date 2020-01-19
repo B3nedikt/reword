@@ -4,7 +4,7 @@ import android.util.AttributeSet
 import android.view.View
 
 /**
- * A view transformer skeleton.
+ * A [ViewTransformer] skeleton.
  */
 abstract class AbstractViewTransformer<T : View> : ViewTransformer<T> {
 
@@ -30,7 +30,7 @@ abstract class AbstractViewTransformer<T : View> : ViewTransformer<T> {
      * @param setTextFunction function which updates the text of the view T
      * @return the transformed view.
      */
-    fun T.updateTexts(resId: Int, setTextFunction: (CharSequence) -> Unit) {
+    protected fun T.updateTexts(resId: Int, setTextFunction: (CharSequence) -> Unit) {
         setTextFunction(resources.getString(resId))
     }
 

@@ -1,8 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-apply from: 'jacoco.gradle'
 apply plugin: 'org.jetbrains.dokka'
+
+apply from: 'jacoco.gradle'
+apply from: 'publish.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -50,14 +52,8 @@ dependencies {
 
     // Test libraries
     testImplementation deps.junit
-    testImplementation deps.hamcrest
-    testImplementation deps.mockito
+    testImplementation deps.kluent
     testImplementation deps.robolectric
     testImplementation deps.mockitoKotlin
     testImplementation deps.testCore
-}
-
-apply from: 'publish.gradle'
-repositories {
-    mavenCentral()
 }
