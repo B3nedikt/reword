@@ -46,7 +46,7 @@ internal class ViewTransformerManager {
     /**
      * Transforms all children of the provided view.
      * Tries to find proper transformers for each child view, and if exists, it will apply them on
-     * the view in place. Implemented not recursive, to ensure we only visit each child one
+     * the view in place. Implemented not recursive, to ensure we only visit each child once
      * for efficiency.
      */
     fun transformChildren(parentView: View) {
