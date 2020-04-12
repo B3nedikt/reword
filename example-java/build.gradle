@@ -1,9 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "dev.b3nedikt.reword.example_java"
@@ -21,7 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -31,8 +28,5 @@ dependencies {
     implementation deps.constraintLayout
     implementation deps.viewPump
     implementation deps.restring
-}
-repositories {
-    mavenCentral()
 }
 

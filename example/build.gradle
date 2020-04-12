@@ -31,6 +31,3 @@ dependencies {
     implementation deps.viewPump
     implementation deps.restring
 }
-repositories {
-    mavenCentral()
-}
