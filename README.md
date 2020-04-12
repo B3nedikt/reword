@@ -6,7 +6,7 @@
 ## Reword 1.0.0
 Reword is a library to update the texts of views when the apps texts have
 changed due to a language change or an update of the apps string resources with a lib like
-restring.
+[Restring](https://github.com/B3nedikt/restring) or [AppLocale](https://github.com/B3nedikt/AppLocale).
 
 ### 1. Add dependency
 ```groovy
