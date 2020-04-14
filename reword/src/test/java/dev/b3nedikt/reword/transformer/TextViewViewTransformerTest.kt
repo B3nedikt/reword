@@ -1,7 +1,6 @@
 package dev.b3nedikt.reword.transformer
 
 import android.content.Context
-import android.content.res.Resources
 import android.os.Build
 import android.widget.EditText
 import android.widget.TextView
@@ -24,7 +23,7 @@ class TextViewViewTransformerTest {
     private val context: Context
         get() {
             val context = spy(ApplicationProvider.getApplicationContext() as Context)
-            val resources = spy<Resources>(context.resources)
+            val resources = spy(context.resources)
 
             whenever(context.resources).thenReturn(resources)
             doReturn(TEXT_ATTR_VALUE).whenever(resources).getString(TEXT_RES_ID)
