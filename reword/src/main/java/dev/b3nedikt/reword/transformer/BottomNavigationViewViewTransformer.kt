@@ -33,8 +33,6 @@ internal object BottomNavigationViewViewTransformer : AbstractViewTransformer<Bo
             ATTRIBUTE_ANDROID_TITLE_CONDENSED, XML_MENU, XML_ITEM)
 
     override fun BottomNavigationView.transform(attrs: Map<String, Int>) {
-        val resources = this.context.resources
-
         for (attributeName in attrs.keys) {
             if (attributeName == ATTRIBUTE_APP_MENU || attributeName == ATTRIBUTE_MENU) {
 
@@ -66,7 +64,6 @@ internal object BottomNavigationViewViewTransformer : AbstractViewTransformer<Bo
             e.printStackTrace()
             HashMap()
         }
-
     }
 
     @Throws(XmlPullParserException::class, IOException::class)

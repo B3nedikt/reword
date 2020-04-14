@@ -1,10 +1,11 @@
 package dev.b3nedikt.reword.transformer
 
+import android.app.Application
 import android.content.Context
 import android.content.res.Resources
 import android.os.Build
-import android.widget.Toolbar
 import androidx.test.core.app.ApplicationProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.spy
 import com.nhaarman.mockitokotlin2.whenever
@@ -14,11 +15,12 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P])
-class ToolbarViewTransformerTest {
 
-    private var transformer = ToolbarViewTransformer
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.P], application = TestApplication::class)
+class BottomNavigationViewViewTransformerTest {
+
+    private var transformer = BottomNavigationViewViewTransformer
 
     private val context: Context
         get() {
@@ -34,24 +36,26 @@ class ToolbarViewTransformerTest {
 
     @Test
     fun shouldTransformToolbar() {
-        val view = Toolbar(context)
+        val view = BottomNavigationView(context)
+        view.menu.add(TITLE_RES_ID)
 
         transformer.apply {
             view.transform(getAttributeSet(false))
         }
 
-        view.title shouldBeEqualTo TITLE_ATTR_VALUE
+        view.menu.getItem(0).title shouldBeEqualTo TITLE_ATTR_VALUE
     }
 
     @Test
     fun shouldTransformToolbar_withAppPrefix() {
-        val view = Toolbar(context)
+        val view = BottomNavigationView(context)
+        view.menu.add(TITLE_RES_ID)
 
         transformer.apply {
             view.transform(getAttributeSet(true))
         }
 
-        view.title shouldBeEqualTo TITLE_ATTR_VALUE
+        view.menu.getItem(0).title shouldBeEqualTo TITLE_ATTR_VALUE
     }
 
     private fun getAttributeSet(withAndroidPrefix: Boolean) = mapOf(
@@ -65,5 +69,12 @@ class ToolbarViewTransformerTest {
         private const val TITLE_ATTR_KEY = "title"
         private const val TITLE_RES_ID = 0x7f0f0123
         private const val TITLE_ATTR_VALUE = "TITLE_ATTR_VALUE"
+    }
+}
+
+private open class TestApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat)
     }
 }
