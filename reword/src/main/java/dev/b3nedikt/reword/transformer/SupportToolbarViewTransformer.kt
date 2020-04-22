@@ -3,7 +3,7 @@ package dev.b3nedikt.reword.transformer
 import androidx.appcompat.widget.Toolbar
 
 /**
- * A [ViewTransformer] which transforms the androidX Toolbar
+ * A [ViewTransformer] which transforms the androidX [Toolbar]
  */
 internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
 
