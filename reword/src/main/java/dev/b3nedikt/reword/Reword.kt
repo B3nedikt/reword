@@ -17,15 +17,16 @@ object Reword {
             registerTransformer(ToolbarViewTransformer)
             registerTransformer(SupportToolbarViewTransformer)
             registerTransformer(BottomNavigationViewViewTransformer)
+            registerTransformer(TextInputLayoutViewTransformer)
         }
     }
 
     /**
      * Register a new view transformer. Use this if you want to update the texts of a custom view.
-     * @param viewTransformer [AbstractViewTransformer]s to register
+     * @param viewTransformer [ViewTransformer]s to register
      */
     @JvmStatic
-    fun addViewTransformer(vararg viewTransformer: AbstractViewTransformer<*>) =
+    fun addViewTransformer(vararg viewTransformer: ViewTransformer<*>) =
             viewTransformer.forEach { viewTransformerManager.registerTransformer(it) }
 
     /**

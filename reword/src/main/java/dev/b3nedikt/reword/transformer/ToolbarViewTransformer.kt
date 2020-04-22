@@ -5,7 +5,7 @@ import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 
 /**
- * A transformer which transforms Toolbar: it transforms the text set as title.
+ * A transformer which transforms [Toolbar]: it transforms the text set as title.
  */
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 internal object ToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
