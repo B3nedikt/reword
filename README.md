@@ -1,9 +1,9 @@
-[![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=1.1.0) ](https://bintray.com/b3nedikt/reword/reword/1.1.0/link)
+[![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=1.1.1) ](https://bintray.com/b3nedikt/reword/reword/1.1.1/link)
 [![Build Status](https://travis-ci.org/B3nedikt/reword.svg?branch=master)](https://travis-ci.org/B3nedikt/reword)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
 [![Documentation](https://img.shields.io/badge/docs-documentation-green.svg)](https://b3nedikt.github.io/reword/)
 
-## Reword 1.1.0
+## Reword 1.1.1
 
 Reword is a library to update the texts of views when the apps texts have
 changed due to a language change or an update of the apps string resources with a lib like
@@ -12,7 +12,7 @@ changed due to a language change or an update of the apps string resources with 
 ### 1. Add dependency
 
 ```groovy
-implementation 'dev.b3nedikt.reword:reword:1.1.0'
+implementation 'dev.b3nedikt.reword:reword:1.1.1'
 implementation 'io.github.inflationx:viewpump:2.0.3'
 ```
 
