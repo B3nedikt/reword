@@ -6,13 +6,11 @@ import android.view.ViewGroup
 import dev.b3nedikt.reword.transformer.ViewTransformer
 
 /**
- * Manages all view transformers as a central point for layout inflater.
- * Layout inflater will ask this manager to transform the inflating views.
+ * Manages all view transformers
  */
 internal class ViewTransformerManager {
 
     private val transformers = mutableListOf<ViewTransformer<View>>()
-    private val attributes = mutableMapOf<Int, Map<String, Int>>()
 
     /**
      * Register a new view viewTransformer to be applied on newly inflating views.
@@ -37,7 +35,7 @@ internal class ViewTransformerManager {
             transformers.find { it.viewType.isInstance(view) }
                     ?.run {
                         val extractedAttributes = extractAttributes(view, attrs)
-                        attributes[view.id] = extractedAttributes
+                        view.setTag(R.id.view_tag, extractedAttributes)
                         view.transform(extractedAttributes)
                         view
                     }
@@ -56,7 +54,10 @@ internal class ViewTransformerManager {
         while (unvisited.isNotEmpty()) {
             val child = unvisited.removeAt(0)
 
-            attributes[child.id]?.let { attrs ->
+            @Suppress("UNCHECKED_CAST")
+            val attrsTag = child.getTag(R.id.view_tag) as? Map<String, Int>
+
+            attrsTag?.let { attrs ->
                 transformers.find { it.viewType.isInstance(child) }
                         ?.run { child.transform(attrs) }
             }
