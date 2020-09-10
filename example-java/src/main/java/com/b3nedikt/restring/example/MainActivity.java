@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 import dev.b3nedikt.restring.Restring;
+import dev.b3nedikt.reword.Reword;
 
 public class MainActivity extends BaseActivity {
 
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity {
 
                 // The layout containing the views you want to localize
                 final View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-                Restring.reword(rootView);
+                Reword.reword(rootView);
 
                 displayStringArray();
 

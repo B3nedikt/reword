@@ -2,8 +2,8 @@ package dev.b3nedikt.reword
 
 import android.util.AttributeSet
 import android.view.View
-import io.github.inflationx.viewpump.InflateResult
-import io.github.inflationx.viewpump.Interceptor
+import dev.b3nedikt.viewpump.InflateResult
+import dev.b3nedikt.viewpump.Interceptor
 
 /**
  * The ViewPump [Interceptor] needed for [Reword]
