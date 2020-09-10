@@ -5,7 +5,7 @@ import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 
 import dev.b3nedikt.restring.Restring
-import io.github.inflationx.viewpump.ViewPumpContextWrapper
+import dev.b3nedikt.viewpump.ViewPumpContextWrapper
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -14,6 +14,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun getResources(): Resources {
-        return baseContext.resources
+        return Restring.wrapContext(baseContext).resources
     }
 }

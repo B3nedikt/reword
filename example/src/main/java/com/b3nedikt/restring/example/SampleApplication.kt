@@ -4,7 +4,7 @@ import android.app.Application
 import dev.b3nedikt.restring.Restring
 import dev.b3nedikt.restring.RestringConfig
 import dev.b3nedikt.reword.RewordInterceptor
-import io.github.inflationx.viewpump.ViewPump
+import dev.b3nedikt.viewpump.ViewPump
 
 
 class SampleApplication : Application() {
