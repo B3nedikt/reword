@@ -51,7 +51,7 @@ used by your app, you can however do it like this:
 Reword.addViewTransformer(new YourCustomViewTransformer())
 ```
 
-See the [TextViewViewTransformer](https://github.com/B3nedikt/reword/blob/master/reword/src/test/java/dev/b3nedikt/reword/transformer/TextViewViewTransformerTest.kt)
+See the [TextViewViewTransformer](https://github.com/B3nedikt/reword/blob/master/reword/src/main/java/dev/b3nedikt/reword/transformer/TextViewViewTransformer.kt)
 as an example how a ViewTransformer implementation should look like.
 
 ## License
