@@ -56,7 +56,7 @@ class CollapsingToolbarLayoutTransformerTest {
 
     private companion object {
         private const val TITLE_RES_ID = 0x7f0f0123
-        private const val TITLE_ATTR_KEY = "text"
+        private const val TITLE_ATTR_KEY = "title"
         private const val TITLE_ATTR_VALUE = "TEXT_ATTR_VALUE"
     }
 }
