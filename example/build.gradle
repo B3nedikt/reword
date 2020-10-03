@@ -30,6 +30,7 @@ android {
 dependencies {
     implementation project(":reword")
 
+    implementation deps.material
     implementation deps.appCompat
     implementation deps.constraintLayout
     implementation deps.kotlin
