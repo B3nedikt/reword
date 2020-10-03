@@ -1,5 +1,6 @@
 package dev.b3nedikt.reword
 
+import android.os.Build
 import android.view.View
 import dev.b3nedikt.reword.transformer.*
 
@@ -14,7 +15,11 @@ object Reword {
     internal val viewTransformerManager: ViewTransformerManager by lazy {
         ViewTransformerManager().apply {
             registerTransformer(TextViewViewTransformer)
-            registerTransformer(ToolbarViewTransformer)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                registerTransformer(ToolbarViewTransformer)
+            }
+
             registerTransformer(SupportToolbarViewTransformer)
             registerTransformer(BottomNavigationViewViewTransformer)
             registerTransformer(TextInputLayoutViewTransformer)
