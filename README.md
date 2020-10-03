@@ -42,6 +42,18 @@ final View rootView = getWindow().getDecorView().findViewById(android.R.id.conte
 Reword.reword(rootView);
 ```
 
+## Custom Views
+
+This library supports many common android views out of the box. If you need to support custom views only
+used by your app, you can however do it like this:
+
+```java
+Reword.addViewTransformer(new YourCustomViewTransformer())
+```
+
+See the [TextViewViewTransformer](https://github.com/B3nedikt/reword/blob/master/reword/src/test/java/dev/b3nedikt/reword/transformer/TextViewViewTransformerTest.kt)
+as an example how a ViewTransformer implementation should look like.
+
 ## License
 
 This library takes some inspiration from the library "restring" originally developed by Hamid Gharehdaghi,
