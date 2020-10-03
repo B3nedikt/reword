@@ -23,6 +23,7 @@ object Reword {
             registerTransformer(SupportToolbarViewTransformer)
             registerTransformer(BottomNavigationViewViewTransformer)
             registerTransformer(TextInputLayoutViewTransformer)
+            registerTransformer(CollapsingToolbarLayoutViewTransformer)
         }
     }
 

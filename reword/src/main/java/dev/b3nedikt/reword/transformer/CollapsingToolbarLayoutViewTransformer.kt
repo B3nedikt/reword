@@ -7,8 +7,8 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
  */
 internal object CollapsingToolbarLayoutViewTransformer : AbstractViewTransformer<CollapsingToolbarLayout>() {
 
-    private const val ATTRIBUTE_TITLE = "text"
-    private const val ATTRIBUTE_ANDROID_TITLE = "android:text"
+    private const val ATTRIBUTE_TITLE = "title"
+    private const val ATTRIBUTE_ANDROID_TITLE = "android:title"
 
     override val viewType = CollapsingToolbarLayout::class.java
 
