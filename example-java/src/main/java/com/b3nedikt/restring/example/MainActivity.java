@@ -29,6 +29,14 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SampleStringsGenerator generator = new SampleStringsGenerator();
+
+        for (Locale locale : Locales.APP_LOCALES) {
+            Restring.putStrings(locale, generator.getStrings(locale));
+            Restring.putQuantityStrings(locale, generator.getQuantityStrings(locale));
+            Restring.putStringArrays(locale, generator.getStringArrays(locale));
+        }
+
         spinner = findViewById(R.id.spinner);
         stringArrayTextView = findViewById(R.id.stringArrayTextView);
         quantityStringTextView = findViewById(R.id.quantityStringTextView);
