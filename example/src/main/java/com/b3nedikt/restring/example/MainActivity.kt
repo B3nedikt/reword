@@ -16,8 +16,14 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        APP_LOCALES.forEach { locale ->
+            Restring.putStrings(locale, SampleStringsGenerator.getStrings(locale))
+            Restring.putQuantityStrings(locale, SampleStringsGenerator.getQuantityStrings(locale))
+            Restring.putStringArrays(locale, SampleStringsGenerator.getStringArrays(locale))
+        }
+
         val localeStrings = APP_LOCALES.map { it.language + " " + it.country }
-        val adapter = ArrayAdapter<String>(this,
+        val adapter = ArrayAdapter(this,
                 android.R.layout.simple_dropdown_item_1line, localeStrings)
 
         spinner.adapter = adapter
