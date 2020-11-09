@@ -1,14 +1,6 @@
 package dev.b3nedikt.reword.transformer
 
-import android.content.res.Resources
-import android.util.AttributeSet
-import android.util.Pair
-import android.util.Xml
 import androidx.appcompat.widget.Toolbar
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserException
-import java.io.IOException
-import java.util.HashMap
 
 /**
  * A [ViewTransformer] which transforms the androidX [Toolbar]
@@ -43,7 +35,12 @@ internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>
                 ATTRIBUTE_TITLE, ATTRIBUTE_APP_TITLE -> updateTexts(attribute.value, this::setTitle)
                 ATTRIBUTE_SUBTITLE, ATTRIBUTE_APP_SUBTITLE -> updateTexts(attribute.value, this::setSubtitle)
                 ATTRIBUTE_MENU, ATTRIBUTE_APP_MENU -> {
-                    PopupMenuHelper.getMenuItemsStrings(resources, attrs[attribute.key] ?: 0).forEach {
+                    val menuItemsStrings = PopupMenuHelper.getMenuItemsStrings(
+                            resources = resources,
+                            resId = attrs[attribute.key] ?: 0
+                    )
+
+                    menuItemsStrings.forEach {
                         if (it.value.title != 0) {
                             menu.findItem(it.key).title = resources.getString(it.value.title)
                         }

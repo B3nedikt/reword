@@ -27,7 +27,7 @@ internal object ToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
 
     override val supportedAttributes = setOf(ATTRIBUTE_MENU, ATTRIBUTE_APP_MENU, ATTRIBUTE_ID,
             ATTRIBUTE_ANDROID_ID, ATTRIBUTE_ANDROID_TITLE, ATTRIBUTE_TITLE_CONDENSED,
-            ATTRIBUTE_ANDROID_TITLE_CONDENSED, XML_MENU, XML_ITEM, ATTRIBUTE_TITLE, ATTRIBUTE_ANDROID_SUBTITLE,ATTRIBUTE_SUBTITLE)
+            ATTRIBUTE_ANDROID_TITLE_CONDENSED, XML_MENU, XML_ITEM, ATTRIBUTE_TITLE, ATTRIBUTE_ANDROID_SUBTITLE, ATTRIBUTE_SUBTITLE)
 
     override fun Toolbar.transform(attrs: Map<String, Int>) {
         attrs.forEach { entry ->
@@ -35,7 +35,14 @@ internal object ToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
                 ATTRIBUTE_TITLE, ATTRIBUTE_ANDROID_TITLE -> updateTexts(entry.value, this::setTitle)
                 ATTRIBUTE_SUBTITLE, ATTRIBUTE_ANDROID_SUBTITLE -> updateTexts(entry.value, this::setSubtitle)
                 ATTRIBUTE_MENU, ATTRIBUTE_APP_MENU -> {
-                    PopupMenuHelper.getMenuItemsStrings(resources,attrs[entry.key] ?: 0).forEach {
+
+
+                    val menuItemsStrings = PopupMenuHelper.getMenuItemsStrings(
+                            resources = resources,
+                            resId = attrs[entry.key] ?: 0
+                    )
+
+                    menuItemsStrings.forEach {
                         if (it.value.title != 0) {
                             menu.findItem(it.key).title = resources.getString(it.value.title)
                         }
