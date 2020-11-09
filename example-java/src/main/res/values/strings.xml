@@ -15,4 +15,8 @@
         <item quantity="other">%d quantity strings EN</item>
     </plurals>
 
+    <string name="menu_entry_1"><b>Entry 1 EN</b></string>
+    <string name="menu_entry_2"><b>Entry 2 EN</b></string>
+
+
 </resources>

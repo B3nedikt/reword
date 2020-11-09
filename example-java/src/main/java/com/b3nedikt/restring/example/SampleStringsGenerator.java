@@ -19,12 +19,18 @@ public class SampleStringsGenerator {
         if (locale == Locale.ENGLISH) {
             map.put("title", "Title (from restring).");
             map.put("subtitle", "Subtitle (from restring).");
+            map.put("menu_entry_1", "Entry 1 EN (from restring)");
+            map.put("menu_entry_2", "Entry 2 EN (from restring)");
         } else if (locale == Locale.US) {
             map.put("title", "Title US (from restring).");
             map.put("subtitle", "Subtitle US (from restring).");
+            map.put("menu_entry_1", "Entry 1 US (from restring)");
+            map.put("menu_entry_2", "Entry 2 US (from restring)");
         } else if (locale == Locales.LOCALE_AUSTRIAN_GERMAN) {
             map.put("title", "Titel (aus restring).");
             map.put("subtitle", "Untertitel (aus restring).");
+            map.put("menu_entry_1", "Entry 1 AUS (from restring)");
+            map.put("menu_entry_2", "Entry 2 AUS (from restring)");
         }
         return map;
     }
