@@ -1,7 +1,6 @@
 package dev.b3nedikt.reword
 
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import dev.b3nedikt.viewpump.InflateResult
 import dev.b3nedikt.viewpump.Interceptor
@@ -13,7 +12,6 @@ object RewordInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): InflateResult =
             chain.proceed(chain.request()).let { inflateResult ->
-                Log.wtf("GGG", inflateResult.name+"   "+ inflateResult.view.toString())
                 inflateResult.copy(view = rewordView(inflateResult.view, inflateResult.attrs))
             }
 
