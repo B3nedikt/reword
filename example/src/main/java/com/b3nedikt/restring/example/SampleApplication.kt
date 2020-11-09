@@ -12,10 +12,6 @@ class SampleApplication : Application() {
         super.onCreate()
 
         Restring.init(this)
-
-        ViewPump.init(ViewPump.builder()
-                .addInterceptor(RewordInterceptor)
-                .build()
-        )
+        ViewPump.init(RewordInterceptor)
     }
 }
