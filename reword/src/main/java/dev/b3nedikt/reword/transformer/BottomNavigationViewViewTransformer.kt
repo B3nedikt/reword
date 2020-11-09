@@ -35,126 +35,15 @@ internal object BottomNavigationViewViewTransformer : AbstractViewTransformer<Bo
     override fun BottomNavigationView.transform(attrs: Map<String, Int>) {
         for (attributeName in attrs.keys) {
             if (attributeName == ATTRIBUTE_APP_MENU || attributeName == ATTRIBUTE_MENU) {
-
-                val resId = attrs[attributeName] ?: continue
-                val itemStrings = getMenuItemsStrings(resources, resId)
-
-                for ((key, value1) in itemStrings) {
-
-                    if (value1.title != 0) {
-                        menu.findItem(key).title = resources.getString(value1.title)
+                PopupMenuHelper.getMenuItemsStrings(resources, attrs[attributeName] ?: 0).forEach {
+                    if (it.value.title != 0) {
+                        menu.findItem(it.key).title = resources.getString(it.value.title)
                     }
-                    if (value1.titleCondensed != 0) {
-                        menu.findItem(key).titleCondensed = resources.getString(value1.titleCondensed)
+                    if (it.value.titleCondensed != 0) {
+                        menu.findItem(it.key).titleCondensed = resources.getString(it.value.titleCondensed)
                     }
                 }
             }
         }
-    }
-
-    private fun getMenuItemsStrings(resources: Resources, resId: Int): Map<Int, MenuItemStrings> {
-        val parser = resources.getLayout(resId)
-        val attrs = Xml.asAttributeSet(parser)
-        return try {
-            parseMenu(parser, attrs)
-        } catch (e: XmlPullParserException) {
-            e.printStackTrace()
-            HashMap()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            HashMap()
-        }
-    }
-
-    @Throws(XmlPullParserException::class, IOException::class)
-    private fun parseMenu(parser: XmlPullParser, attrs: AttributeSet): Map<Int, MenuItemStrings> {
-
-        val menuItems = mutableMapOf<Int, MenuItemStrings>()
-        var eventType = parser.eventType
-        var tagName: String
-
-        // This loop will skip to the menu start tag
-        do {
-            if (eventType == XmlPullParser.START_TAG) {
-                tagName = parser.name
-                if (tagName == XML_MENU) {
-                    eventType = parser.next()
-                    break
-                }
-
-                throw RuntimeException("Expecting menu, got $tagName")
-            }
-            eventType = parser.next()
-        } while (eventType != XmlPullParser.END_DOCUMENT)
-
-        var reachedEndOfMenu = false
-        var menuLevel = 0
-        while (!reachedEndOfMenu) {
-            when (eventType) {
-                XmlPullParser.START_TAG -> {
-                    tagName = parser.name
-                    if (tagName == XML_ITEM) {
-                        val item = parseMenuItem(attrs)
-                        if (item != null) {
-                            menuItems[item.first] = item.second
-                        }
-                    } else if (tagName == XML_MENU) {
-                        menuLevel++
-                    }
-                }
-
-                XmlPullParser.END_TAG -> {
-                    tagName = parser.name
-                    if (tagName == XML_MENU) {
-                        menuLevel--
-                        if (menuLevel <= 0) {
-                            reachedEndOfMenu = true
-                        }
-                    }
-                }
-
-                XmlPullParser.END_DOCUMENT -> reachedEndOfMenu = true
-            }
-
-            eventType = parser.next()
-        }
-        return menuItems
-    }
-
-    private fun parseMenuItem(attrs: AttributeSet): Pair<Int, MenuItemStrings>? {
-        var menuId = 0
-        var menuItemStrings: MenuItemStrings? = null
-        val attributeCount = attrs.attributeCount
-        for (index in 0 until attributeCount) {
-            if (attrs.getAttributeName(index) == ATTRIBUTE_ANDROID_ID
-                    || attrs.getAttributeName(index) == ATTRIBUTE_ID) {
-                menuId = attrs.getAttributeResourceValue(index, 0)
-            } else if (attrs.getAttributeName(index) == ATTRIBUTE_ANDROID_TITLE
-                    || attrs.getAttributeName(index) == ATTRIBUTE_TITLE) {
-                val value = attrs.getAttributeValue(index)
-                if (value == null || !value.startsWith("@")) break
-                if (menuItemStrings == null) {
-                    menuItemStrings = MenuItemStrings()
-                }
-                menuItemStrings.title = attrs.getAttributeResourceValue(index, 0)
-            } else if (attrs.getAttributeName(index) == ATTRIBUTE_ANDROID_TITLE_CONDENSED
-                    || attrs.getAttributeName(index) == ATTRIBUTE_TITLE_CONDENSED) {
-                val value = attrs.getAttributeValue(index)
-                if (value == null || !value.startsWith("@")) break
-                if (menuItemStrings == null) {
-                    menuItemStrings = MenuItemStrings()
-                }
-                menuItemStrings.titleCondensed = attrs.getAttributeResourceValue(index, 0)
-            }
-        }
-        return if (menuId != 0 && menuItemStrings != null)
-            Pair(menuId, menuItemStrings)
-        else
-            null
-    }
-
-    private class MenuItemStrings {
-        var title: Int = 0
-        var titleCondensed: Int = 0
     }
 }
