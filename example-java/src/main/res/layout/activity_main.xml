@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:subtitle="@string/subtitle"
+        app:menu="@menu/sample_menu"
         app:subtitleTextColor="@android:color/white"
         app:title="@string/title"
         app:titleTextColor="@android:color/white">
