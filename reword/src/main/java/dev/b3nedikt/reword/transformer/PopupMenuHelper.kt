@@ -5,10 +5,12 @@ import android.util.AttributeSet
 import android.util.Pair
 import android.util.Xml
 import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserException
-import java.io.IOException
-import java.util.HashMap
 
+
+/**
+ * A Helper class to parse menus, this can be used to create transformers for views which contain
+ * menus, like the Toolbar or the BottomNavigationView
+ */
 object PopupMenuHelper {
 
     private const val ATTRIBUTE_ANDROID_TITLE = "android:title"
@@ -20,23 +22,25 @@ object PopupMenuHelper {
     private const val XML_MENU = "menu"
     private const val XML_ITEM = "item"
 
+    /**
+     * Extracts [MenuItemStrings] from the menu with the provided [resId], returning an empy
+     * map in case of a failure
+     *
+     * @param resources the resources from which the ids will get fetched
+     * @param resId the id of the menu
+     */
     fun getMenuItemsStrings(resources: Resources, resId: Int): Map<Int, MenuItemStrings> {
-        if(resId == 0)
-            return HashMap()
+
+        if (resId == 0) return emptyMap()
+
         val parser = resources.getLayout(resId)
         val attrs = Xml.asAttributeSet(parser)
-        return try {
+
+        return runCatching {
             parseMenu(parser, attrs)
-        } catch (e: XmlPullParserException) {
-            e.printStackTrace()
-            HashMap()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            HashMap()
-        }
+        }.getOrDefault(emptyMap())
     }
 
-    @Throws(XmlPullParserException::class, IOException::class)
     private fun parseMenu(parser: XmlPullParser, attrs: AttributeSet): Map<Int, MenuItemStrings> {
 
         val menuItems = mutableMapOf<Int, MenuItemStrings>()

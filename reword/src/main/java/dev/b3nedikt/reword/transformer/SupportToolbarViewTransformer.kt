@@ -35,6 +35,7 @@ internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>
                 ATTRIBUTE_TITLE, ATTRIBUTE_APP_TITLE -> updateTexts(attribute.value, this::setTitle)
                 ATTRIBUTE_SUBTITLE, ATTRIBUTE_APP_SUBTITLE -> updateTexts(attribute.value, this::setSubtitle)
                 ATTRIBUTE_MENU, ATTRIBUTE_APP_MENU -> {
+
                     val menuItemsStrings = PopupMenuHelper.getMenuItemsStrings(
                             resources = resources,
                             resId = attrs[attribute.key] ?: 0

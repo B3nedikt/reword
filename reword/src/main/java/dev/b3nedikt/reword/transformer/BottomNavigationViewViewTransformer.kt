@@ -1,14 +1,6 @@
 package dev.b3nedikt.reword.transformer
 
-import android.content.res.Resources
-import android.util.AttributeSet
-import android.util.Pair
-import android.util.Xml
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.xmlpull.v1.XmlPullParser
-import org.xmlpull.v1.XmlPullParserException
-import java.io.IOException
-import java.util.*
 
 /**
  * A transformer which transforms BottomNavigationView: it transforms the texts coming from the menu.
@@ -35,7 +27,13 @@ internal object BottomNavigationViewViewTransformer : AbstractViewTransformer<Bo
     override fun BottomNavigationView.transform(attrs: Map<String, Int>) {
         for (attributeName in attrs.keys) {
             if (attributeName == ATTRIBUTE_APP_MENU || attributeName == ATTRIBUTE_MENU) {
-                PopupMenuHelper.getMenuItemsStrings(resources, attrs[attributeName] ?: 0).forEach {
+
+                val menuItemsStrings = PopupMenuHelper.getMenuItemsStrings(
+                        resources = resources,
+                        resId = attrs[attributeName] ?: 0
+                )
+
+                menuItemsStrings.forEach {
                     if (it.value.title != 0) {
                         menu.findItem(it.key).title = resources.getString(it.value.title)
                     }
