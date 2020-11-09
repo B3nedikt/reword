@@ -13,10 +13,6 @@ public class SampleApplication extends Application {
         super.onCreate();
 
         Restring.init(this);
-
-        ViewPump.init(ViewPump.builder()
-                .addInterceptor(RewordInterceptor.INSTANCE)
-                .build()
-        );
+        ViewPump.init(RewordInterceptor.INSTANCE);
     }
 }
