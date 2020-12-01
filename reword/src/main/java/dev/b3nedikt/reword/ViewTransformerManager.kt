@@ -1,8 +1,10 @@
 package dev.b3nedikt.reword
 
+import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import dev.b3nedikt.reword.creator.ViewCreator
 import dev.b3nedikt.reword.transformer.ViewTransformer
 
 /**
@@ -12,20 +14,41 @@ internal class ViewTransformerManager {
 
     private val transformers = mutableListOf<ViewTransformer<View>>()
 
+    private val creators = mutableListOf<ViewCreator<View>>()
+
     /**
-     * Register a new view viewTransformer to be applied on newly inflating views.
+     * Register a new view viewTransformer to transform views
      *
      * @param viewTransformer to be added to transformers list.
      */
     @Suppress("UNCHECKED_CAST")
-    fun registerTransformer(viewTransformer: ViewTransformer<*>) {
+    fun registerTransformer(viewTransformer: ViewTransformer<out View>) {
         transformers.add(viewTransformer as ViewTransformer<View>)
     }
 
     /**
-     * Transforms a view.
-     * it tries to find proper transformers for view, and if exists, it will apply them on view,
-     * and return the final result as a new view.
+     * Register a new view viewCreator to inflate views
+     *
+     * @param viewCreator to be added to the transformers list.
+     */
+    fun registerViewCreator(viewCreator: ViewCreator<View>) {
+        creators.add(viewCreator)
+    }
+
+    /**
+     * Creates a new view, or null if no [ViewCreator] for this specific view is registered.
+     *
+     * @param name name of the view
+     * @param attrs attributes of the view.
+     * @return the newly created view.
+     */
+    fun createView(name: String, context: Context, attrs: AttributeSet?): View? =
+            creators.find { it.viewName == name }
+                    ?.createView(context, attrs)
+
+    /**
+     * Transforms a already inflated view, returns the view unchanged if no [ViewTransformer] for
+     * this specific view is registered.
      *
      * @param view  to be transformed.
      * @param attrs attributes of the view.
@@ -35,8 +58,10 @@ internal class ViewTransformerManager {
             transformers.find { it.viewType.isInstance(view) }
                     ?.run {
                         val extractedAttributes = extractAttributes(view, attrs)
+
                         view.setTag(R.id.view_tag, extractedAttributes)
                         view.transform(extractedAttributes)
+
                         view
                     }
                     ?: view
