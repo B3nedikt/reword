@@ -2,6 +2,9 @@ package dev.b3nedikt.reword
 
 import android.os.Build
 import android.view.View
+import dev.b3nedikt.reword.creator.TabItemViewCreator
+import dev.b3nedikt.reword.creator.TabLayoutViewCreator
+import dev.b3nedikt.reword.creator.ViewCreator
 import dev.b3nedikt.reword.transformer.*
 
 
@@ -24,8 +27,21 @@ object Reword {
             registerTransformer(BottomNavigationViewViewTransformer)
             registerTransformer(TextInputLayoutViewTransformer)
             registerTransformer(CollapsingToolbarLayoutViewTransformer)
+
+            registerTransformer(TabViewViewTransformer)
+
+            registerViewCreator(TabItemViewCreator)
+            registerViewCreator(TabLayoutViewCreator)
         }
     }
+
+    /**
+     * Register a new view creator. Use this if you want to replace a view with a custom view.
+     * @param viewCreators [ViewCreator]s to register
+     */
+    @JvmStatic
+    fun addViewCreator(vararg viewCreators: ViewCreator<View>) =
+            viewCreators.forEach { viewTransformerManager.registerViewCreator(it) }
 
     /**
      * Register a new view transformer. Use this if you want to update the texts of a custom view.
