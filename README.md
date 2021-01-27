@@ -1,9 +1,9 @@
-[![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=3.1.0)](https://bintray.com/b3nedikt/reword/reword/3.1.0/link)
+[![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=3.1.1)](https://bintray.com/b3nedikt/reword/reword/3.1.1/link)
 [![Build Status](https://travis-ci.org/B3nedikt/reword.svg?branch=master)](https://travis-ci.org/B3nedikt/reword)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
 [![Documentation](https://img.shields.io/badge/docs-documentation-green.svg)](https://b3nedikt.github.io/reword/)
 
-## Reword 3.1.0
+## Reword 3.1.1
 
 Reword is a library to update the texts of views when the apps texts have
 changed due to a language change or an update of the apps string resources with a lib like
@@ -16,7 +16,7 @@ changed due to a language change or an update of the apps string resources with 
 implementation 'dev.b3nedikt.viewpump:viewpump:4.0.5'
 
 // Allows to update the text of views at runtime without recreating the activity
-implementation 'dev.b3nedikt.reword:reword:3.1.0'
+implementation 'dev.b3nedikt.reword:reword:3.1.1'
 ```
 
 ### 2. Initialize
