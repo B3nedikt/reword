@@ -4,14 +4,14 @@ import android.util.AttributeSet
 import android.view.View
 
 /**
- * A [ViewTransformer] transforms a view by updating its texts
+ * A [ViewTransformer] transforms a view
  */
-interface ViewTransformer<T : View> {
+interface ViewTransformer<in T : View> {
 
     /**
      * The type of view supported by this [ViewTransformer]
      */
-    val viewType: Class<T>
+    val viewType: Class<in T>
 
     /**
      * The attributes which contain text that can be updated with this [ViewTransformer]
@@ -19,18 +19,10 @@ interface ViewTransformer<T : View> {
     val supportedAttributes: Set<String>
 
     /**
-     * Update the texts of a view
+     * Transforms the view
+     *
      * @param attrs a [Map] of view attributes with the attribute value from its [AttributeSet]s
      * as the key and the attribute resource value as the value
      */
     fun T.transform(attrs: Map<String, Int>)
-
-    /**
-     * Extracts the attributes of a [View] from its [AttributeSet]
-     *
-     * @param view  we want to update the text of
-     * @param attrs attributes of the view.
-     * @return a [Map] of attributes as keys and their value
-     */
-    fun extractAttributes(view: View, attrs: AttributeSet): Map<String, Int>
 }

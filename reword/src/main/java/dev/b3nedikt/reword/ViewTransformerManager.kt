@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import dev.b3nedikt.reword.creator.ViewCreator
 import dev.b3nedikt.reword.transformer.ViewTransformer
+import dev.b3nedikt.reword.transformer.extractAttributes
 
 /**
  * Manages all view transformers
@@ -21,8 +22,8 @@ internal class ViewTransformerManager {
      *
      * @param viewTransformer to be added to transformers list.
      */
-    @Suppress("UNCHECKED_CAST")
-    fun registerTransformer(viewTransformer: ViewTransformer<out View>) {
+    fun <T : View> registerTransformer(viewTransformer: ViewTransformer<T>) {
+        @Suppress("UNCHECKED_CAST")
         transformers.add(viewTransformer as ViewTransformer<View>)
     }
 
@@ -36,7 +37,7 @@ internal class ViewTransformerManager {
     }
 
     /**
-     * Creates a new view, or null if no [ViewCreator] for this specific view is registered.
+     * Creates a new view, or returns null if no [ViewCreator] for this specific view is registered.
      *
      * @param name name of the view
      * @param attrs attributes of the view.
@@ -57,7 +58,7 @@ internal class ViewTransformerManager {
     fun transform(view: View, attrs: AttributeSet): View =
             transformers.find { it.viewType.isInstance(view) }
                     ?.run {
-                        val extractedAttributes = extractAttributes(view, attrs)
+                        val extractedAttributes = attrs.extractAttributes(supportedAttributes)
 
                         view.setTag(R.id.view_tag, extractedAttributes)
                         view.transform(extractedAttributes)
