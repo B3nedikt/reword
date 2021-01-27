@@ -22,7 +22,7 @@ internal object TabItemViewCreator : ViewCreator<TabItem> {
     override fun createView(context: Context, attrs: AttributeSet?): TabItem {
 
         val extractedAttributes = attrs?.extractAttributes(supportedAttributes)
-        val textResourceId = extractedAttributes?.toList()?.first()?.second
+        val textResourceId = extractedAttributes?.toList()?.firstOrNull()?.second
 
         return RewordTabItem(context, attrs, textResourceId).apply {
             setTag(R.id.view_tag, extractedAttributes)
