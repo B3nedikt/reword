@@ -34,9 +34,9 @@ task clean(type: Delete) {
 }
 
 ext {
-    compileSdkVersion = 29
+    compileSdkVersion = 30
     minSdkVersion = 16
-    targetSdkVersion = 29
+    targetSdkVersion = 30
 
     deps = [
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
@@ -50,7 +50,7 @@ ext {
             junit           : "junit:junit:4.12",
             kluent          : "org.amshove.kluent:kluent-android:1.59",
             mockito         : "org.mockito:mockito-inline:3.0.0",
-            robolectric     : "org.robolectric:robolectric:4.3.1",
+            robolectric     : "org.robolectric:robolectric:4.4",
             mockitoKotlin   : "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0",
             testCore        : "androidx.test:core:1.2.0"
     ]
