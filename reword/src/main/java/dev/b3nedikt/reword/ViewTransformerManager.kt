@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import dev.b3nedikt.reword.creator.ViewCreator
 import dev.b3nedikt.reword.transformer.ViewTransformer
-import dev.b3nedikt.reword.transformer.extractAttributes
+import dev.b3nedikt.reword.util.extractAttributes
 
 /**
  * Manages all view transformers

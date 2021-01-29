@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.ContentFrameLayout
+import androidx.core.view.GravityCompat
 import dev.b3nedikt.restring.Restring
 import dev.b3nedikt.reword.Reword
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : BaseActivity() {
+
+    private lateinit var toogle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,20 @@ class MainActivity : BaseActivity() {
                 android.R.layout.simple_dropdown_item_1line, localeStrings)
 
         spinner.adapter = adapter
+
+        toogle = ActionBarDrawerToggle(
+                this, drawerLayout, topAppBar, R.string.open, R.string.close)
+
+        topAppBar.setNavigationOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Handle menu item selected
+            menuItem.isChecked = true
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 
     override fun onResume() {
@@ -50,5 +68,11 @@ class MainActivity : BaseActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) = Unit
         }
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+
+        toogle.syncState()
     }
 }

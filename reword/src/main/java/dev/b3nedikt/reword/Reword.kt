@@ -27,6 +27,7 @@ object Reword {
             registerTransformer(BottomNavigationViewViewTransformer)
             registerTransformer(TextInputLayoutViewTransformer)
             registerTransformer(CollapsingToolbarLayoutViewTransformer)
+            registerTransformer(NavigationViewViewTransformer)
 
             registerTransformer(TabViewViewTransformer)
 

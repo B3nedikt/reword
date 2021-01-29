@@ -1,11 +1,12 @@
 package dev.b3nedikt.reword.transformer
 
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import dev.b3nedikt.reword.util.updateTexts
 
 /**
  * A transformer which transforms the title of a [CollapsingToolbarLayout]
  */
-internal object CollapsingToolbarLayoutViewTransformer : AbstractViewTransformer<CollapsingToolbarLayout>() {
+internal object CollapsingToolbarLayoutViewTransformer : ViewTransformer<CollapsingToolbarLayout> {
 
     private const val ATTRIBUTE_TITLE = "title"
     private const val ATTRIBUTE_ANDROID_TITLE = "android:title"

@@ -1,11 +1,12 @@
 package dev.b3nedikt.reword.transformer
 
 import com.google.android.material.textfield.TextInputLayout
+import dev.b3nedikt.reword.util.updateTexts
 
 /**
  * A transformer which transforms [TextInputLayout]s, it only transforms the hint text.
  */
-internal object TextInputLayoutViewTransformer : AbstractViewTransformer<TextInputLayout>() {
+internal object TextInputLayoutViewTransformer : ViewTransformer<TextInputLayout> {
 
     private const val ATTRIBUTE_HINT = "hint"
     private const val ATTRIBUTE_ANDROID_HINT = "android:hint"

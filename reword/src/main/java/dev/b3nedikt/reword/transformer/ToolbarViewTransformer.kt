@@ -3,12 +3,14 @@ package dev.b3nedikt.reword.transformer
 import android.os.Build
 import android.widget.Toolbar
 import androidx.annotation.RequiresApi
+import dev.b3nedikt.reword.util.PopupMenuHelper
+import dev.b3nedikt.reword.util.updateTexts
 
 /**
  * A transformer which transforms [Toolbar]: it transforms the text set as title.
  */
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-internal object ToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
+internal object ToolbarViewTransformer : ViewTransformer<Toolbar> {
 
     private const val ATTRIBUTE_TITLE = "title"
     private const val ATTRIBUTE_SUBTITLE = "subtitle"

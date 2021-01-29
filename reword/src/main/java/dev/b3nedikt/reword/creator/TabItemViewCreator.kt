@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.tabs.TabItem
 import dev.b3nedikt.reword.R
-import dev.b3nedikt.reword.transformer.extractAttributes
+import dev.b3nedikt.reword.util.extractAttributes
 import dev.b3nedikt.reword.views.RewordTabItem
 
 /**
