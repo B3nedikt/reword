@@ -20,7 +20,7 @@ class AttributeSetExtensionsTest {
     fun extractAttributesShouldGetTheCorrectAttributesFromTheAttributeSet() {
         getAttributeSet()
                 .extractAttributes(setOf(TITLE_ATTR_KEY))
-                .shouldBeEqualTo(TITLE_RES_ID)
+                .shouldBeEqualTo(mapOf(TITLE_ATTR_KEY to TITLE_RES_ID))
     }
 
     private fun getAttributeSet(): AttributeSet = mock {
