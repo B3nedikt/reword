@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.4.10'
+    ext.kotlin_version = '1.4.21'
     ext.dokka_version = '0.10.1'
     ext.jacoco_version = '0.8.5'
 
@@ -8,9 +8,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.android.tools.build:gradle:4.1.2'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
         classpath "org.jacoco:org.jacoco.core:$jacoco_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
@@ -44,8 +44,8 @@ ext {
             appCompat       : "androidx.appcompat:appcompat:1.2.0",
             material        : "com.google.android.material:material:1.2.0",
             constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.1",
-            viewPump        : "dev.b3nedikt.viewpump:viewpump:4.0.2",
-            restring        : "dev.b3nedikt.restring:restring:5.1.0",
+            viewPump        : "dev.b3nedikt.viewpump:viewpump:4.0.5",
+            restring        : "dev.b3nedikt.restring:restring:5.1.1",
 
             junit           : "junit:junit:4.12",
             kluent          : "org.amshove.kluent:kluent-android:1.59",

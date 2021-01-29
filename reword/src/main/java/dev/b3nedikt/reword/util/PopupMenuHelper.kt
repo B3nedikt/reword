@@ -1,4 +1,4 @@
-package dev.b3nedikt.reword.transformer
+package dev.b3nedikt.reword.util
 
 import android.content.res.Resources
 import android.util.AttributeSet
@@ -23,7 +23,7 @@ object PopupMenuHelper {
     private const val XML_ITEM = "item"
 
     /**
-     * Extracts [MenuItemStrings] from the menu with the provided [resId], returning an empy
+     * Extracts [MenuItemStrings] from the menu with the provided [resId], returning an empty
      * map in case of a failure
      *
      * @param resources the resources from which the ids will get fetched
@@ -56,7 +56,7 @@ object PopupMenuHelper {
                     break
                 }
 
-                throw RuntimeException("Expecting menu, got $tagName")
+                error("Expecting menu, got $tagName")
             }
             eventType = parser.next()
         } while (eventType != XmlPullParser.END_DOCUMENT)

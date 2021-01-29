@@ -1,9 +1,9 @@
-package dev.b3nedikt.reword.transformer
+package dev.b3nedikt.reword.util
 
 import android.util.AttributeSet
 
 /**
- * Extracts the attributes of a [View] from its [AttributeSet]
+ * Extracts the attributes of a [AttributeSet]
  *
  * @param attributeNames set of names of attributes to extract
  * @return a [Map] of attributes as keys and their value

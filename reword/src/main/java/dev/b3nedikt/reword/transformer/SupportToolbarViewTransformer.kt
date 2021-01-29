@@ -1,11 +1,13 @@
 package dev.b3nedikt.reword.transformer
 
 import androidx.appcompat.widget.Toolbar
+import dev.b3nedikt.reword.util.PopupMenuHelper
+import dev.b3nedikt.reword.util.updateTexts
 
 /**
  * A [ViewTransformer] which transforms the androidX [Toolbar]
  */
-internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>() {
+internal object SupportToolbarViewTransformer : ViewTransformer<Toolbar> {
 
     private const val ATTRIBUTE_TITLE = "title"
     private const val ATTRIBUTE_SUBTITLE = "subtitle"
@@ -43,10 +45,10 @@ internal object SupportToolbarViewTransformer : AbstractViewTransformer<Toolbar>
 
                     menuItemsStrings.forEach {
                         if (it.value.title != 0) {
-                            menu.findItem(it.key).title = resources.getString(it.value.title)
+                            menu.findItem(it.key)?.title = resources.getString(it.value.title)
                         }
                         if (it.value.titleCondensed != 0) {
-                            menu.findItem(it.key).titleCondensed = resources.getString(it.value.titleCondensed)
+                            menu.findItem(it.key)?.titleCondensed = resources.getString(it.value.titleCondensed)
                         }
                     }
                 }

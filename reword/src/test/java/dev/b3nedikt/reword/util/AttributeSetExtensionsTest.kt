@@ -1,9 +1,7 @@
-package dev.b3nedikt.reword.transformer
+package dev.b3nedikt.reword.util
 
 import android.os.Build
 import android.util.AttributeSet
-import android.view.View
-import androidx.test.core.app.ApplicationProvider
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
@@ -16,14 +14,12 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [Build.VERSION_CODES.P])
-class AbstractViewTransformerTest {
+class AttributeSetExtensionsTest {
 
     @Test
     fun extractAttributesShouldGetTheCorrectAttributesFromTheAttributeSet() {
-        val view = View(ApplicationProvider.getApplicationContext())
-
-        ConcreteViewTransformer
-                .extractAttributes(view, getAttributeSet())[TITLE_ATTR_KEY]
+        getAttributeSet()
+                .extractAttributes(setOf(TITLE_ATTR_KEY))
                 .shouldBeEqualTo(TITLE_RES_ID)
     }
 
@@ -31,17 +27,8 @@ class AbstractViewTransformerTest {
         on { attributeCount } doReturn TITLE_ATTR_INDEX + 2
         on { getAttributeName(anyInt()) } doReturn "other_attribute"
         on { getAttributeName(TITLE_ATTR_INDEX) } doReturn TITLE_ATTR_KEY
-        on { getAttributeValue(TITLE_ATTR_INDEX) } doReturn "@${TITLE_RES_ID}"
+        on { getAttributeValue(TITLE_ATTR_INDEX) } doReturn "@$TITLE_RES_ID"
         on { getAttributeResourceValue(eq(TITLE_ATTR_INDEX), anyInt()) } doReturn TITLE_RES_ID
-    }
-
-    private object ConcreteViewTransformer : AbstractViewTransformer<View>() {
-
-        override val viewType = View::class.java
-
-        override val supportedAttributes: Set<String> = setOf(TITLE_ATTR_KEY)
-
-        override fun View.transform(attrs: Map<String, Int>) = Unit
     }
 
     private companion object {

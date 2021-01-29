@@ -1,12 +1,13 @@
 package dev.b3nedikt.reword.transformer
 
 import android.widget.TextView
+import dev.b3nedikt.reword.util.updateTexts
 
 /**
  * A transformer which transforms TextView(or any view extends it like Button, EditText, ...):
  * it transforms "text" & "hint" attributes.
  */
-internal object TextViewViewTransformer : AbstractViewTransformer<TextView>() {
+internal object TextViewViewTransformer : ViewTransformer<TextView> {
 
     private const val ATTRIBUTE_TEXT = "text"
     private const val ATTRIBUTE_ANDROID_TEXT = "android:text"

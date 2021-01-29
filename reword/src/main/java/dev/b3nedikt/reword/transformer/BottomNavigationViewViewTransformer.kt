@@ -1,11 +1,12 @@
 package dev.b3nedikt.reword.transformer
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.b3nedikt.reword.util.PopupMenuHelper
 
 /**
  * A transformer which transforms BottomNavigationView: it transforms the texts coming from the menu.
  */
-internal object BottomNavigationViewViewTransformer : AbstractViewTransformer<BottomNavigationView>() {
+internal object BottomNavigationViewViewTransformer : ViewTransformer<BottomNavigationView> {
 
     private const val ATTRIBUTE_MENU = "menu"
     private const val ATTRIBUTE_APP_MENU = "app:menu"
