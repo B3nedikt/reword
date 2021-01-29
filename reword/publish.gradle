@@ -4,7 +4,7 @@ ext {
 
     publishedGroupId = 'dev.b3nedikt.reword'
     artifact = 'reword'
-    libraryVersion = '3.1.1'
+    libraryVersion = '4.0.0'
 
     libraryName = 'Reword'
     libraryDescription = 'Reword is a library to update the texts of views when the apps texts' +
