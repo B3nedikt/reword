@@ -10,5 +10,5 @@ import android.view.View
  * @return the transformed view.
  */
 fun View.updateTexts(resId: Int, setTextFunction: (CharSequence) -> Unit) {
-    setTextFunction(resources.getString(resId))
+    setTextFunction(resources.getText(resId))
 }
