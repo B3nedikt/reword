@@ -28,7 +28,7 @@ class TextInputLayoutViewTransformerTest {
 
             whenever(context.resources) doReturn resources
 
-            doReturn(HINT_ATTR_VALUE).whenever(resources).getString(HINT_RES_ID)
+            doReturn(HINT_ATTR_VALUE).whenever(resources).getText(HINT_RES_ID)
 
             return context
         }

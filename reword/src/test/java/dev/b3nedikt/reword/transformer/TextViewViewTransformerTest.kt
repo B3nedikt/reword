@@ -26,8 +26,8 @@ class TextViewViewTransformerTest {
             val resources = spy(context.resources)
 
             whenever(context.resources).thenReturn(resources)
-            doReturn(TEXT_ATTR_VALUE).whenever(resources).getString(TEXT_RES_ID)
-            doReturn(HINT_ATTR_VALUE).whenever(resources).getString(HINT_RES_ID)
+            doReturn(TEXT_ATTR_VALUE).whenever(resources).getText(TEXT_RES_ID)
+            doReturn(HINT_ATTR_VALUE).whenever(resources).getText(HINT_RES_ID)
 
             return context
         }

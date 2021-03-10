@@ -27,7 +27,7 @@ class AppCompatToolbarViewTransformerTest {
 
             whenever(context.resources) doReturn resources
 
-            doReturn(TITLE_ATTR_VALUE).whenever(resources).getString(TITLE_RES_ID)
+            doReturn(TITLE_ATTR_VALUE).whenever(resources).getText(TITLE_RES_ID)
 
             return context
         }
