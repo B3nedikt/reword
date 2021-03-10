@@ -22,12 +22,15 @@ object Reword {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 registerTransformer(ToolbarViewTransformer)
             }
+            registerTransformer(AppCompatToolbarViewTransformer)
 
-            registerTransformer(SupportToolbarViewTransformer)
             registerTransformer(BottomNavigationViewViewTransformer)
             registerTransformer(TextInputLayoutViewTransformer)
             registerTransformer(CollapsingToolbarLayoutViewTransformer)
             registerTransformer(NavigationViewViewTransformer)
+
+            registerTransformer(SearchViewViewTransformer)
+            registerTransformer(AppCompatSearchViewViewTransformer)
 
             registerTransformer(TabViewViewTransformer)
 
