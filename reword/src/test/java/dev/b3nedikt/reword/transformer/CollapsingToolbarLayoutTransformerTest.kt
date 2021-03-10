@@ -25,7 +25,7 @@ class CollapsingToolbarLayoutTransformerTest {
             val resources = Mockito.spy(context.resources)
 
             whenever(context.resources).thenReturn(resources)
-            Mockito.doReturn(TITLE_ATTR_VALUE).whenever(resources).getString(TITLE_RES_ID)
+            Mockito.doReturn(TITLE_ATTR_VALUE).whenever(resources).getText(TITLE_RES_ID)
 
             return context
         }
