@@ -7,7 +7,7 @@ import dev.b3nedikt.reword.util.updateTexts
 /**
  * A [ViewTransformer] which transforms the androidX [Toolbar]
  */
-internal object SupportToolbarViewTransformer : ViewTransformer<Toolbar> {
+internal object AppCompatToolbarViewTransformer : ViewTransformer<Toolbar> {
 
     private const val ATTRIBUTE_TITLE = "title"
     private const val ATTRIBUTE_SUBTITLE = "subtitle"

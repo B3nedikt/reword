@@ -16,9 +16,9 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [Build.VERSION_CODES.P])
-class SupportToolbarViewTransformerTest {
+class AppCompatToolbarViewTransformerTest {
 
-    private val transformer = SupportToolbarViewTransformer
+    private val transformer = AppCompatToolbarViewTransformer
 
     private val context: Context
         get() {
