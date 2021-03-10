@@ -22,8 +22,6 @@ class MainActivity : BaseActivity() {
 
         APP_LOCALES.forEach { locale ->
             Restring.putStrings(locale, SampleStringsGenerator.getStrings(locale))
-            Restring.putQuantityStrings(locale, SampleStringsGenerator.getQuantityStrings(locale))
-            Restring.putStringArrays(locale, SampleStringsGenerator.getStringArrays(locale))
         }
 
         val localeStrings = APP_LOCALES.map { it.language + " " + it.country }
@@ -57,13 +55,6 @@ class MainActivity : BaseActivity() {
 
                 val rootView = window.decorView.findViewById<ContentFrameLayout>(android.R.id.content)
                 Reword.reword(rootView)
-
-                stringArrayTextView.text = resources.getStringArray(R.array.string_array)
-                        .joinToString("\n")
-
-                quantityStringTextView.text = (0 until 3)
-                        .joinToString("\n")
-                        { resources.getQuantityString(R.plurals.quantity_string, it, it) }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) = Unit
