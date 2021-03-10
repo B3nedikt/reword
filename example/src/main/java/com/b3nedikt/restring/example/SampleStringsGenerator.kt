@@ -1,6 +1,5 @@
 package com.b3nedikt.restring.example
 
-import dev.b3nedikt.restring.PluralKeyword
 import java.util.*
 
 /**
@@ -18,24 +17,8 @@ object SampleStringsGenerator {
                 "menu_subtitle" to "Subtitle $locale (from restring)",
                 "header_title" to "Header title $locale (from restring)",
                 "header_text" to "Header text $locale (from restring)",
-        )
-    }
-
-    fun getStringArrays(locale: Locale): Map<String, Array<CharSequence>> {
-        return mapOf(
-                "string_array"
-                        to
-                        arrayOf("String Array 1 $locale (from restring)",
-                                "String Array 2 $locale (from restring)")
-        )
-    }
-
-    fun getQuantityStrings(locale: Locale): Map<String, Map<PluralKeyword, CharSequence>> {
-        return mapOf(
-                "quantity_string"
-                        to
-                        mapOf(PluralKeyword.ONE to "%d quantity string $locale (from restring)",
-                                PluralKeyword.OTHER to "%d quantity strings $locale (from restring)")
+                "query_hint" to "Query hint $locale (from restring)",
+                "default_query_hint" to "Default query hint $locale (from restring)"
         )
     }
 }
