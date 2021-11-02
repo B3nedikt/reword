@@ -1,4 +1,4 @@
-[![Download](https://api.bintray.com/packages/b3nedikt/reword/reword/images/download.svg?version=4.0.1)](https://bintray.com/b3nedikt/reword/reword/4.0.1/link)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword)
 [![Build Status](https://travis-ci.org/B3nedikt/reword.svg?branch=master)](https://travis-ci.org/B3nedikt/reword)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
 [![Documentation](https://img.shields.io/badge/docs-documentation-green.svg)](https://b3nedikt.github.io/reword/)
