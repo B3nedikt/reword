@@ -13,7 +13,7 @@ import dev.b3nedikt.reword.util.extractAttributes
  */
 internal class ViewTransformerManager {
 
-    private val transformers = mutableListOf<ViewTransformer<View>>()
+    private val transformers = mutableMapOf<Class<*>, ViewTransformer<View>>()
 
     private val creators = mutableListOf<ViewCreator<View>>()
 
@@ -24,7 +24,7 @@ internal class ViewTransformerManager {
      */
     fun <T : View> registerTransformer(viewTransformer: ViewTransformer<T>) {
         @Suppress("UNCHECKED_CAST")
-        transformers.add(viewTransformer as ViewTransformer<View>)
+        transformers[viewTransformer.viewType] = viewTransformer as ViewTransformer<View>
     }
 
     /**
@@ -56,7 +56,7 @@ internal class ViewTransformerManager {
      * @return the transformed view.
      */
     fun transform(view: View, attrs: AttributeSet): View =
-            transformers.find { it.viewType.isInstance(view) }
+            findTransformer(view)
                     ?.run {
                         val extractedAttributes = attrs.extractAttributes(supportedAttributes)
 
@@ -84,7 +84,7 @@ internal class ViewTransformerManager {
             val attrsTag = child.getTag(R.id.view_tag) as? Map<String, Int>
 
             attrsTag?.let { attrs ->
-                transformers.find { it.viewType.isInstance(child) }
+                findTransformer(child)
                         ?.run { child.transform(attrs) }
             }
 
@@ -94,4 +94,7 @@ internal class ViewTransformerManager {
             for (i in 0 until childCount) unvisited.add(child.getChildAt(i))
         }
     }
+
+    private fun findTransformer(view: View): ViewTransformer<View>? =
+        transformers[view.javaClass] ?: transformers.values.find { it.viewType.isInstance(view) }
 }
