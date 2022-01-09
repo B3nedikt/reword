@@ -4,12 +4,12 @@ import android.content.Context
 import android.os.Build
 import androidx.test.core.app.ApplicationProvider
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.nhaarman.mockitokotlin2.whenever
 import dev.b3nedikt.reword.TestApplication
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
+import org.mockito.kotlin.whenever
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 

@@ -5,12 +5,12 @@ import android.os.Build
 import android.widget.EditText
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
-import com.nhaarman.mockitokotlin2.whenever
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.doReturn
 import org.mockito.Mockito.spy
+import org.mockito.kotlin.whenever
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 

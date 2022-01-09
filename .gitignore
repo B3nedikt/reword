@@ -1,8 +1,13 @@
 *.iml
 .gradle
 /local.properties
-.idea
+
+/.idea
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+
+/buildSrc/build
+
+jacoco.exec
