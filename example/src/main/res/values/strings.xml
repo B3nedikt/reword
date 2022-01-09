@@ -2,7 +2,6 @@
     <string name="app_name">Reword</string>
     <string name="title">Title.</string>
     <string name="text_view_text">TextView Text English</string>
-    <string name="untranslated"><b>Untranslated</b></string>
 
     <string name="menu_entry_1"><b>Entry 1 EN</b></string>
     <string name="menu_entry_2"><b>Entry 2 EN</b></string>

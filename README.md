@@ -1,9 +1,9 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword)
-[![Build Status](https://travis-ci.org/B3nedikt/reword.svg?branch=master)](https://travis-ci.org/B3nedikt/reword)
+[![Build & Test](https://github.com/B3nedikt/reword/actions/workflows/build-and-test.yaml/badge.svg)](https://github.com/B3nedikt/reword/actions/workflows/build-and-test.yaml)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
-[![Documentation](https://img.shields.io/badge/docs-documentation-green.svg)](https://b3nedikt.github.io/reword/)
+[![javadoc](https://javadoc.io/badge2/dev.b3nedikt.reword/reword/javadoc.svg)](https://javadoc.io/doc/dev.b3nedikt.reword/reword)
 
-## Reword 4.0.1
+## Reword 4.0.2
 
 Reword is a library to update the texts of views when the apps texts have
 changed due to a language change or an update of the apps string resources with a lib like
