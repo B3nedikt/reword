@@ -1,7 +1,6 @@
 package dev.b3nedikt.reword.transformer
 
 import android.content.Context
-import android.os.Build
 import androidx.test.core.app.ApplicationProvider
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import dev.b3nedikt.reword.TestApplication
@@ -14,7 +13,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P], application = TestApplication::class)
+@Config(application = TestApplication::class)
 class CollapsingToolbarLayoutTransformerTest {
 
     private var transformer = CollapsingToolbarLayoutViewTransformer

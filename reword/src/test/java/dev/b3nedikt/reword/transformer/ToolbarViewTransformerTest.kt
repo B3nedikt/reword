@@ -2,7 +2,6 @@ package dev.b3nedikt.reword.transformer
 
 import android.content.Context
 import android.content.res.Resources
-import android.os.Build
 import android.widget.Toolbar
 import androidx.test.core.app.ApplicationProvider
 import org.amshove.kluent.shouldBeEqualTo
@@ -12,10 +11,8 @@ import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.spy
 import org.mockito.kotlin.whenever
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P])
 class ToolbarViewTransformerTest {
 
     private var transformer = ToolbarViewTransformer

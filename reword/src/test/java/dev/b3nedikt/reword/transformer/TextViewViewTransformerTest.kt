@@ -1,7 +1,6 @@
 package dev.b3nedikt.reword.transformer
 
 import android.content.Context
-import android.os.Build
 import android.widget.EditText
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
@@ -12,10 +11,8 @@ import org.mockito.Mockito.doReturn
 import org.mockito.Mockito.spy
 import org.mockito.kotlin.whenever
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P])
 class TextViewViewTransformerTest {
 
     private var transformer = TextViewViewTransformer
