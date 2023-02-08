@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.dokka")
     id("jacoco-configuration")
     id("publication")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -34,6 +35,7 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    namespace = "dev.b3nedikt.reword"
 }
 
 dependencies {
