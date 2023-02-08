@@ -7,8 +7,11 @@
     <string name="menu_entry_2"><b>Entry 2 EN</b></string>
     <string name="menu_entry_3"><b>Entry 3 EN</b></string>
     <string name="menu_entry_4"><b>Entry 4 EN</b></string>
+    <string name="menu_entry_5"><b>Entry 5 EN</b></string>
+    <string name="menu_entry_6"><b>Entry 6 EN</b></string>
 
-    <string name="menu_subtitle"><b>Subtitle 1 EN</b></string>
+    <string name="menu_subtitle_1"><b>Subtitle 1 EN</b></string>
+    <string name="menu_subtitle_2"><b>Subtitle 2 EN</b></string>
 
     <string name="header_title">Header title</string>
     <string name="header_text">Header text</string>
