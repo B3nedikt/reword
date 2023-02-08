@@ -1,6 +1,5 @@
 package dev.b3nedikt.reword.util
 
-import android.os.Build
 import android.util.AttributeSet
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.Test
@@ -10,10 +9,8 @@ import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.eq
 import org.mockito.kotlin.mock
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P])
 class AttributeSetExtensionsTest {
 
     @Test

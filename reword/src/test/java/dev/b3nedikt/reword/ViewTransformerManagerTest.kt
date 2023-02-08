@@ -1,6 +1,5 @@
 package dev.b3nedikt.reword
 
-import android.os.Build
 import android.widget.EditText
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
@@ -12,10 +11,8 @@ import org.junit.runner.RunWith
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [Build.VERSION_CODES.P])
 class ViewTransformerManagerTest {
 
     private lateinit var transformerManager: ViewTransformerManager
