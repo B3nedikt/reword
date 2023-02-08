@@ -61,9 +61,7 @@ object PopupMenuHelper {
             eventType = parser.next()
         } while (eventType != XmlPullParser.END_DOCUMENT)
 
-        var reachedEndOfMenu = false
-        var menuLevel = 0
-        while (!reachedEndOfMenu) {
+        while (true) {
             when (eventType) {
                 XmlPullParser.START_TAG -> {
                     tagName = parser.name
@@ -72,22 +70,10 @@ object PopupMenuHelper {
                         if (item != null) {
                             menuItems[item.first] = item.second
                         }
-                    } else if (tagName == XML_MENU) {
-                        menuLevel++
                     }
                 }
 
-                XmlPullParser.END_TAG -> {
-                    tagName = parser.name
-                    if (tagName == XML_MENU) {
-                        menuLevel--
-                        if (menuLevel <= 0) {
-                            reachedEndOfMenu = true
-                        }
-                    }
-                }
-
-                XmlPullParser.END_DOCUMENT -> reachedEndOfMenu = true
+                XmlPullParser.END_DOCUMENT -> break
             }
 
             eventType = parser.next()
