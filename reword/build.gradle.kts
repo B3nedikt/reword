@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+
+    implementation(platform(Dependencies.kotlinBom))
+
     implementation(Dependencies.kotlin)
 
     implementation(Dependencies.appCompat)
