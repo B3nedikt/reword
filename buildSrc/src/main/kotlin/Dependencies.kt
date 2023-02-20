@@ -1,15 +1,13 @@
 object Dependencies {
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
-    const val kotlinBom = "org.jetbrains.kotlin:kotlin-bom:1.8.10"
 
     const val appCompat = "androidx.appcompat:appcompat:1.6.0"
-    const val material = "com.google.android.material:material:1.4.0"
+    const val material = "com.google.android.material:material:1.8.0"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
 
-    const val restring = "dev.b3nedikt.restring:restring:5.1.4"
+    const val restring = "dev.b3nedikt.restring:restring:5.2.2"
     const val viewPump = "dev.b3nedikt.viewpump:viewpump:4.0.10"
-    const val reword = "dev.b3nedikt.reword:reword:4.0.1"
 
     const val junit = "junit:junit:4.13.2"
     const val kluent = "org.amshove.kluent:kluent-android:1.68"
