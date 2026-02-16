@@ -13,7 +13,7 @@ changed due to a language change or an update of the apps string resources with 
 
 ```groovy
 // Intercept view inflation
-implementation 'dev.b3nedikt.viewpump:viewpump:4.0.10'
+implementation 'dev.b3nedikt.viewpump:viewpump:4.0.15'
 
 // Allows to update the text of views at runtime without recreating the activity
 implementation 'dev.b3nedikt.reword:reword:4.0.4'
