@@ -1,3 +1,5 @@
+
+
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.b3nedikt.reword/reword)
 [![Build & Test](https://github.com/B3nedikt/reword/actions/workflows/build-and-test.yaml/badge.svg)](https://github.com/B3nedikt/reword/actions/workflows/build-and-test.yaml)
 [![codecov](https://codecov.io/gh/B3nedikt/reword/branch/master/graph/badge.svg)](https://codecov.io/gh/B3nedikt/reword)
@@ -13,7 +15,7 @@ changed due to a language change or an update of the apps string resources with 
 
 ```groovy
 // Intercept view inflation
-implementation 'dev.b3nedikt.viewpump:viewpump:4.0.15'
+implementation 'dev.b3nedikt.viewpump:viewpump:4.0.10'
 
 // Allows to update the text of views at runtime without recreating the activity
 implementation 'dev.b3nedikt.reword:reword:4.0.4'
